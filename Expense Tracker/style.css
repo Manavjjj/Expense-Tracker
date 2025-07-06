@@ -1,0 +1,95 @@
+:root {
+  --income-color: #2ecc71;
+  --expense-color: #e74c3c;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background: #f5f5f5;
+  margin: 0;
+  padding: 20px;
+}
+
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.balance h2 {
+  margin: 0;
+  font-size: 2em;
+}
+
+.summary {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0;
+}
+
+.income, .expense {
+  text-align: center;
+  padding: 10px;
+  width: 48%;
+}
+
+.income { border-right: 1px solid #ddd; }
+.income p { color: var(--income-color); }
+.expense p { color: var(--expense-color); }
+
+#transaction-list {
+  list-style: none;
+  padding: 0;
+}
+
+.transaction {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  margin: 5px 0;
+  background: #f9f9f9;
+  border-radius: 5px;
+}
+
+.transaction.income { border-left: 4px solid var(--income-color); }
+.transaction.expense { border-left: 4px solid var(--expense-color); }
+
+.delete-btn {
+  background: var(--expense-color);
+  color: white;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+form {
+  margin-top: 20px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+input, select {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+button {
+  background: #3498db;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+}

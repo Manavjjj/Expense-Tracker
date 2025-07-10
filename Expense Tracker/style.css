@@ -1,95 +1,260 @@
 :root {
-  --income-color: #2ecc71;
-  --expense-color: #e74c3c;
+    --primary: #4361ee;
+    --primary-light: #4895ef;
+    --secondary: #3f37c9;
+    --success: #4cc9f0;
+    --danger: #f72585;
+    --warning: #f8961e;
+    --light: #f8f9fa;
+    --dark: #212529;
+    --gray: #6c757d;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body {
-  font-family: 'Arial', sans-serif;
-  background: #f5f5f5;
-  margin: 0;
-  padding: 20px;
+    background-color: #f5f7fa;
+    color: var(--dark);
+    line-height: 1.6;
 }
 
-.container {
-  max-width: 600px;
-  margin: 0 auto;
-  background: white;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+.app-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
 }
 
-.balance h2 {
-  margin: 0;
-  font-size: 2em;
+.app-header {
+    text-align: center;
+    margin-bottom: 30px;
 }
 
-.summary {
-  display: flex;
-  justify-content: space-between;
-  margin: 20px 0;
+.app-header h1 {
+    color: var(--primary);
+    margin-bottom: 15px;
+    font-size: 2.2rem;
 }
 
-.income, .expense {
-  text-align: center;
-  padding: 10px;
-  width: 48%;
+.app-header i {
+    margin-right: 10px;
 }
 
-.income { border-right: 1px solid #ddd; }
-.income p { color: var(--income-color); }
-.expense p { color: var(--expense-color); }
-
-#transaction-list {
-  list-style: none;
-  padding: 0;
+.balance-card {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    text-align: center;
 }
 
-.transaction {
-  display: flex;
-  justify-content: space-between;
-  padding: 10px;
-  margin: 5px 0;
-  background: #f9f9f9;
-  border-radius: 5px;
+.balance-card h3 {
+    color: var(--gray);
+    font-size: 1rem;
+    margin-bottom: 5px;
 }
 
-.transaction.income { border-left: 4px solid var(--income-color); }
-.transaction.expense { border-left: 4px solid var(--expense-color); }
-
-.delete-btn {
-  background: var(--expense-color);
-  color: white;
-  border: none;
-  border-radius: 3px;
-  cursor: pointer;
+.balance-card h2 {
+    font-size: 2.2rem;
+    color: var(--dark);
 }
 
-form {
-  margin-top: 20px;
+.summary-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.income-card, .expense-card {
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.income-card {
+    border-left: 4px solid var(--success);
+}
+
+.expense-card {
+    border-left: 4px solid var(--danger);
+}
+
+.income-card h4, .expense-card h4 {
+    font-size: 0.9rem;
+    color: var(--gray);
+}
+
+.income-card p {
+    color: var(--success);
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+
+.expense-card p {
+    color: var(--danger);
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+
+.income-card i {
+    color: var(--success);
+    font-size: 1.8rem;
+}
+
+.expense-card i {
+    color: var(--danger);
+    font-size: 1.8rem;
+}
+
+.transaction-section {
+    margin-bottom: 30px;
+}
+
+.transaction-section h3 {
+    margin-bottom: 15px;
+    color: var(--primary);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.transaction-list {
+    list-style: none;
+}
+
+.transaction-list li {
+    background: white;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.transaction-list li:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.transaction-list li.plus {
+    border-left: 4px solid var(--success);
+}
+
+.transaction-list li.minus {
+    border-left: 4px solid var(--danger);
+}
+
+.transaction-list li .delete-btn {
+    background: var(--danger);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 5px 8px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.transaction-list li .delete-btn:hover {
+    background: #d1144a;
+}
+
+.form-section {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.form-section h3 {
+    margin-bottom: 20px;
+    color: var(--primary);
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
 .form-group {
-  margin-bottom: 15px;
+    margin-bottom: 15px;
 }
 
-label {
-  display: block;
-  margin-bottom: 5px;
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+    color: var(--dark);
 }
 
-input, select {
-  width: 100%;
-  padding: 8px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
+.form-group label span {
+    font-weight: normal;
+    color: var(--gray);
+    font-size: 0.8rem;
 }
 
-button {
-  background: #3498db;
-  color: white;
-  border: none;
-  padding: 10px 15px;
-  border-radius: 4px;
-  cursor: pointer;
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: border 0.3s;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: var(--primary);
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 12px;
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.submit-btn:hover {
+    background: var(--secondary);
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .app-container {
+        padding: 15px;
+    }
+    
+    .summary-cards {
+        grid-template-columns: 1fr;
+    }
+    
+    .balance-card h2 {
+        font-size: 1.8rem;
+    }
+    
+    .income-card p, .expense-card p {
+        font-size: 1.2rem;
+    }
 }
